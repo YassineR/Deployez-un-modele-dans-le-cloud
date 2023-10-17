@@ -21,24 +21,22 @@ We have a dataset comprising fruit images and associated labels. The data proces
     - `DataProcessing.ipynb`: Jupyter notebook detailing the PySpark scripts, EMR setup, and model integration steps.
   
 2. **Data**: Folder containing the dataset used for the analysis.
-    - `FruitData.zip`: Compressed file containing fruit images and labels (download link provided).
+    - Data can be found here : https://www.kaggle.com/datasets/moltean/fruits
 
 3. **Scripts**: PySpark scripts and configuration files.
     - `data_processing.py`: PySpark script for data processing and EMR setup.
     - `emr_config.json`: Configuration file for EMR setup.
 
 4. **Results**: Folder containing output files and visualizations.
-    - `ProcessedData/`: Processed data files.
-    - `PCA_Plots/`: Plots from PCA dimension reduction.
+    - `ProcessedData & PCA results`: They can be found publicly on my S3 storage (see presentation for more informations) 
 
 5. **Documentation**: Folder containing additional resources.
     - `DistributedModelInference.pdf`: Documentation on distributing model inference using TensorFlow Keras.
     - `GDPR_Compliance_Guide.pdf`: Guide on GDPR compliance in Big Data processing.
 
-6. **README.md**: Documentation providing an overview of the project, its structure, and instructions for running the data processing scripts.
 
 ## Skills and assessment 
-![Eval](Evaluation.png)
+![Eval](Evaluation_P8.png)
 
 _work in progress_
 
