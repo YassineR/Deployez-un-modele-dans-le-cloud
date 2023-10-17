@@ -24,45 +24,15 @@ We have a dataset comprising fruit images and associated labels. The data proces
     - Data can be found here : https://www.kaggle.com/datasets/moltean/fruits
 
 3. **Scripts**: PySpark scripts and configuration files.
-    - `data_processing.py`: PySpark script for data processing and EMR setup.
+    - `bootstrap-emr.sh`: Shell script to bootstrap the cluster instances
     - `emr_config.json`: Configuration file for EMR setup.
 
 4. **Results**: Folder containing output files and visualizations.
     - `ProcessedData & PCA results`: They can be found publicly on my S3 storage (see presentation for more informations) 
 
-5. **Documentation**: Folder containing additional resources.
-    - `DistributedModelInference.pdf`: Documentation on distributing model inference using TensorFlow Keras.
-    - `GDPR_Compliance_Guide.pdf`: Guide on GDPR compliance in Big Data processing.
+5. **PDF**: Presentation i used for my project defense.
+    - `Presentation.pdf`: Slides providing an overview of my project, including the data analysis process and key findings presented during the defense.
 
 
 ## Skills and assessment 
 ![Eval](Evaluation_P8.png)
-
-_work in progress_
-
-## How to Run the Data Processing Scripts
-1. **Requirements**: Ensure you have Python, PySpark, and AWS CLI installed on your system. Refer to `requirements.txt` for specific library versions.
-
-2. **Clone the Repository**: Clone this repository to your local machine using the following command:
-   ```
-   git clone <repository-url>
-   ```
-
-3. **Navigate to Scripts Directory**: Go to the `Scripts` directory in your terminal:
-   ```
-   cd Scripts
-   ```
-
-4. **Set Up AWS Credentials**: Configure your AWS credentials using the AWS CLI:
-   ```
-   aws configure
-   ```
-
-5. **Run PySpark Script**: Execute the PySpark script to process the data and set up the EMR instance:
-   ```
-   spark-submit --master yarn data_processing.py
-   ```
-
-6. **Access Processed Data**: Check the `Results/ProcessedData` folder for processed data files.
-
-7. **Explore PCA Plots**: Visualize the PCA results in the `Results/PCA_Plots` folder.
