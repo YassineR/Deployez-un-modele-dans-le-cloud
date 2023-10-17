@@ -1,0 +1,15 @@
+aws emr create-cluster \
+ --name "P8-YR" \
+ --log-uri "s3n://p8-data-yr/logs/" \
+ --release-label "emr-6.13.0" \
+ --service-role "arn:aws:iam::271469964189:role/EMR_DefaultRole" \
+ --ec2-attributes '{"InstanceProfile":"EMR_EC2_DefaultRole","EmrManagedMasterSecurityGroup":"sg-066d1de58d73ace94","EmrManagedSlaveSecurityGroup":"sg-0aa3f0219abadc27d","KeyName":"p8-yr-cluster","SubnetId":"subnet-021ceb3468dd94a01"}' \
+ --tags 'for-use-with-amazon-emr-managed-policies=true' \
+ --applications Name=JupyterHub Name=Spark Name=TensorFlow \
+ --configurations '[{"Classification":"jupyter-s3-conf","Properties":{"s3.persistence.bucket":"p8-data-yr","s3.persistence.enabled":"true"}}]' \
+ --instance-groups '[{"InstanceCount":2,"InstanceGroupType":"TASK","Name":"Tâche - 1","InstanceType":"m5.xlarge","EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"VolumeType":"gp2","SizeInGB":32},"VolumesPerInstance":2}]}},{"InstanceCount":1,"InstanceGroupType":"CORE","Name":"Unité principale","InstanceType":"m5.xlarge","EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"VolumeType":"gp2","SizeInGB":32},"VolumesPerInstance":2}]}},{"InstanceCount":1,"InstanceGroupType":"MASTER","Name":"Primaire","InstanceType":"m5.xlarge","EbsConfiguration":{"EbsBlockDeviceConfigs":[{"VolumeSpecification":{"VolumeType":"gp2","SizeInGB":32},"VolumesPerInstance":2}]}}]' \
+ --bootstrap-actions '[{"Args":[],"Name":"Installation des librairies","Path":"s3://p8-data-yr/bootstrap-emr.sh"}]' \
+ --auto-scaling-role "arn:aws:iam::271469964189:role/EMR_AutoScaling_DefaultRole" \
+ --scale-down-behavior "TERMINATE_AT_TASK_COMPLETION" \
+ --os-release-label "2.0.20230808.0" \
+ --region "eu-west-3"
